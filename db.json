@@ -1,0 +1,36 @@
+{
+  "eventList": [
+    {
+      "date": "2022-05-11T23:00:00.000Z",
+      "category": "promotion",
+      "company": "aweawe",
+      "person": "awewa",
+      "numbers": "1213114",
+      "staff": "Andy",
+      "amount": 1313,
+      "remarks": "ew",
+      "id": 1
+    },
+    {
+      "date": "2022-05-19T23:00:00.000Z",
+      "category": "purchase",
+      "company": "汨畈晒",
+      "person": "2344",
+      "numbers": "tettet",
+      "staff": "Andy",
+      "amount": 313,
+      "remarks": "rara",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
