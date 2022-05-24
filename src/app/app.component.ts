@@ -12,12 +12,12 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  displayedColumns: string[] = ['id', 'date', 'category', 'company', 'person', 'numbers', 'staff', 'amount', 'remarks'];
+  displayedColumns: string[] = ['id','date', 'category', 'company', 'person', 'numbers', 'staff', 'amount', 'remarks', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(public dialog: MatDialog, private api : ApiService) {
+  constructor(public dialog: MatDialog, private api : ApiService,) {
   }
   ngOnInit(): void {
     this.getAllEvents();
@@ -25,6 +25,10 @@ export class AppComponent implements OnInit{
   openDialog() {
     this.dialog.open(DialogComponent, {
       width:'30%'
+    }).afterClosed().subscribe(val=>{
+      if(val==='save'){
+        this.getAllEvents();
+      }
     });
   }
   getAllEvents(){
@@ -40,6 +44,32 @@ export class AppComponent implements OnInit{
       }
     })
   }
+  editEvent(row : any){
+    this.dialog.open(DialogComponent,{
+      width:'30%',
+      data:row
+    }).afterClosed().subscribe(val=>{
+      if(val==='update'){
+        this.getAllEvents();
+      }
+    })
+  }
+
+  deleteEvent(id:number){
+    this.api.deleteEvent(id)
+    .subscribe({
+      next:(res)=>{
+        alert("Event is deleted");
+        this.getAllEvents();
+      },
+      error:()=>{
+        alert("Error")
+      }
+    });
+  }
+
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

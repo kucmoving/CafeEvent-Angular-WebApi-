@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add event form</h1>
+<h1 mat-dialog-title>123</h1>
 <div mat-dialog-content>
   <form [formGroup]="eventForm">
       <!-- date -->
@@ -72,7 +72,7 @@
       maxlength="256"
       placeholder="Ex. I need help with..."
     />
-    <mat-icon matSuffix>note</mat-icon>
+    <mat-icon matSuffix>message</mat-icon>
     <mat-hint align="start"
       ><strong>Whatsapp me directly if you need help.</strong>
     </mat-hint>
@@ -80,12 +80,12 @@
   </mat-form-field>
   </form>
   <div mat-dialog-action [align]="'center'">
-    <button mat-icon-button color="warn" (click)="addevent()" aria-label="Example icon-button with a heart icon">
+    <!-- <button mat-raised-button color="warn" mat-dialog-close>close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addEvent()">Save</button> -->
+    <button mat-icon-button color="warn" (click)="addEvent()" aria-label="Example icon-button with a heart icon">
       <mat-icon>save_alt</mat-icon>
     </button>
-    <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon">
-      <mat-icon>exit_to_app</mat-icon>
-    </button>
+
   </div>
 </div>
 
